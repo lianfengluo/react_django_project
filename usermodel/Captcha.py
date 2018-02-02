@@ -2,7 +2,7 @@
 import os
 import random
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
-from customize import settings
+from entry_file import settings
 _letter_cases = "abcdefghjkmnpqrstuvwxy"
 _upper_cases = _letter_cases.upper()
 _numbers = ''.join(map(str, range(3, 10)))
