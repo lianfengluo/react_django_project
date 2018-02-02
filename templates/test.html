@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{%block javascript%}
+<script type="text/javascript">
+//下面用于图片上传预览功能
+function setImagePreview(this_dom) {
+var docObj=this_dom;
+ 
+var imgObjPreview=document.getElementById("preview");
+if(docObj.files &&docObj.files[0])
+{
+//firefox setting style
+imgObjPreview.style.display = 'block';
+imgObjPreview.style.width = '200px';
+imgObjPreview.style.height = '200px'; 
+//imgObjPreview.src = docObj.files[0].getAsDataURL();
+ 
+imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+}
+else
+{
+//IE use filter
+docObj.select();
+var imgSrc = document.selection.createRange().text;
+var localImagId = document.getElementById("localImag");
+//init size
+localImagId.style.width = "200px";
+localImagId.style.height = "200px";
+try{
+localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+}
+catch(e)
+{
+// alert("您上传的图片格式不正确，请重新选择!");
+return false;
+}
+imgObjPreview.style.display = 'none';
+document.selection.empty();
+}
+return true;
+}
+ 
+</script>
+{%endblock%}
+{% block css %}
+<style>
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+</style>
+{% endblock %}
+{% block content %}
+<form action="/api/user/userimageupload" method="POST" enctype ="multipart/form-data">
+        {% csrf_token %}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td height="101" align="center">
+<div id="localImag">
+<img id="preview" src="" width="150" height="180" style="display: block; width:200px; height: 200px;"></div>
+</td>
+</tr>
+<tr>
+<td align="center" style="padding-top:10px;">
+	<a href="javascript:;" class="file">点击这里上传文件
+		<input type="file" name="image" id="doc" style="width:150px;" onchange="setImagePreview(this);"/>
+</a></td>
+</tr>
+</tbody>
+</table>
+        <input type="submit" value='submit' />
+    </form>
+<!-- <div>
+	<form action="/api/user/userimageupload" method="POST" enctype ="multipart/form-data">
+		{% csrf_token %}
+		<input type="file" name='image'> 
+		<input type="submit" value='submit' />
+	</form>
+</div> -->
+
+<!-- <script type="text/javascript" src="/static/js/vendor.bundle.js.gz"></script>
+<script type="text/javascript" src="/static/js/bundle.js.gz"></script> -->
+
+{% endblock %}

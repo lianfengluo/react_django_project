@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titlename %}
+<title>注册</title>
+{%endblock%}
+{% block css %}
+{%endblock%}
+{% block javascript %}
+<script type="text/javascript" src='{% static "js/verifysignup.js" %}'></script>
+{% endblock %}
+{%block content%}
+<div>
+    
+    <nav class="navbar navbar-default" role="navigation">
+            <div class="col-md-12" style="margin-top:5px">
+                <ul class="nav nav-pills">
+                    <li><a href="{% url 'login' %}">登陆</a></li>
+                    <li class="active"><a href="{% url 'signup' %}">注册</a></li>
+                </ul>
+            </div>
+    </nav>
+    <br/>
+    <div class="container-row-fluid">
+    
+            <div class="row-fluid">
+                  <div class="well" style="width: 380px; margin-left: auto; margin-right: auto">
+                    <div class="row-fluid">
+                      <div>
+                        <h3 style="margin: 0 0 20px;">用户注册</h3>
+                      </div>
+                    </div><!-- /row fluid -->
+
+                    <div class="row-fluid">
+                      <div>
+                        <form role="form" id="signupform" action="javascript:void(0)">
+
+                          <div class="clearfix control-group ">
+                            <div class="form-group">
+                              <label for="username">用户名:</label>
+                              <input type="text" name="username" placeholder="6位或以上数字字母" autocomplete="off" class="form-control textinput textInput" id="username" required="" autofocus="" maxlength="100" autocapitalize="off" autocorrect="off"/>
+                              
+                            </div>
+                          </div>
+
+                          <div class="clearfix control-group ">
+                            <div class="form-group">
+                              <label for="password">密码:</label>
+                              <input type="password" placeholder="6位字符以上" name="password" maxlength="100" autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control textinput textInput" id="password" required="">
+                              
+                            </div>
+                          </div>
+                          <div class="clearfix control-group ">
+                            <div class="form-group">
+                              <label for="password2">确认密码:</label>
+                              <input type="password" placeholder="6位字符以上" name="password2" maxlength="100" autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control textinput textInput" id="password2" required="">
+                              
+                            </div>
+                          </div>
+                          <div class="clearfix control-group ">
+                            <div class="form-group">
+                              <label for="email">邮箱:</label>
+                              <input type="email" name="email" placeholder="请输入邮箱" maxlength="100" autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control textinput textInput" id="email" required="">
+                              
+                            </div>
+                          </div>
+                          <div class="clearfix control-group ">
+                            <div class="form-group">
+                              <label for="nickname">昵称:</label>
+                              <input type="text" placeholder="4位字符或以上" name="nickname" maxlength="100" autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control textinput textInput" id="nickname" required="">
+                              
+                            </div>
+                          </div>
+<!--                           <div class="clearfix control-group ">
+  <div class="form-group">
+    <label for="contact_number">联系电话:</label>
+    <input type="text" placeholder="6位数字或以上" name="contact_number" maxlength="100" autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control textinput textInput" id="contact_number" required="">
+    
+  </div>
+</div> -->
+
+                          
+                            
+                              {# <div class="well well-small text-error" style="border: none">请输入一个正确的 用户名 和密码. 注意他们都是大区分大小写的.</div> #}
+                            
+                          
+
+                          <div class="form-actions-no-box">
+                            <input type="submit" name="submit" value="注册" class="btn btn-primary form-control">
+                          </div>
+                        </form>
+                                <center>
+                    <div class="row" id="signuperrors" style="color:red;display:none"></div>
+                    <div class="row" id='erorrs;display:none' style="color:red">
+                    <div id="errorUser"></div>
+                    <div id="errorPass"></div>
+                    <div id="errorPass2"></div>
+                    <div id="errorEmail"></div>
+                    <div id="errorNick"></div>
+                    <div id="errorCon"></div>
+                    </div>
+                      </div>
+            </div><!-- /.row-fluid -->
+          </div><!--/.well-->
+    </div>
+
+
+
+
+    </div>
+</div>
+{%endblock%}
+
