@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LoginPage from '../components/loginpage';
+import LoginPage from '../components/user/loginpage';
 import { fetchUser } from '../actions/fetchuser';
 import { withRouter } from 'react-router-dom';
 // import { fetchUser } from '../actions/fetchuser';

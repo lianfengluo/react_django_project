@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, hashHistory } from 'react-router-dom';
 import Routes from './Routes'
-import App from '../components/app';
+import AppWrap from '../components/appWrap';
 
 export default class Routerlist extends React.Component{
     render(){
 		return(
 			<Router history={hashHistory} basename='/#'>
-			  <App>
+			  <AppWrap>
 			    <Routes/>
-			  </App>
+			  </AppWrap>
 			</Router>
 		)
 	}

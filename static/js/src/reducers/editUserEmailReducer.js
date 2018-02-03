@@ -22,6 +22,7 @@ function editEmailReducer(state = initalState, action) {
         }
       }
       return { ...state, loading: false, error: `${action.payload.message}`,errors };
+      // return { ...state, loading: false, error: action.payload.message ,errors };
     case 'INIT_EDIT_USER_EMAIL_STATE':
       return initalState
     default:

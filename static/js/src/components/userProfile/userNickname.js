@@ -13,19 +13,6 @@ class EditNicknameForm extends React.Component {
 	  this.redirect_to_login = this.redirect_to_login.bind(this);
 	}
 	
-	SubmitNickname = (e) => {
-	e.preventDefault();
-	this.props.form.validateFields(['nickname','check_code'],(err, values) => {
-		if (!err) {
-			this.ChangeCode();
-			this.props.form.setFieldsValue({'check_code':''})
-		    this.props.editUserNickname(values);
-		}
-		})
-	};
-	redirect_to_login(){
-		this.props.history.push('/user/login/username');
-	}
 	componentWillReceiveProps(nextprops){
 		if(nextprops.userinfo.permission == 'Authentication credentials were not provided.'){
 			this.redirect_timer = setInterval(()=>{this.props.history.push('/user/login/username');},2000);
@@ -44,6 +31,19 @@ class EditNicknameForm extends React.Component {
 	componentWillUnmount() {
         clearInterval(this.redirect_timer);//FIXME:无法实现卸载时清除计时器
     }
+	SubmitNickname = (e) => {
+	e.preventDefault();
+	this.props.form.validateFields(['nickname','check_code'],(err, values) => {
+		if (!err) {
+			this.ChangeCode();
+			this.props.form.setFieldsValue({'check_code':''})
+		    this.props.editUserNickname(values);
+		}
+		})
+	};
+	redirect_to_login(){
+		this.props.history.push('/user/login/username');
+	}
 	ChangeCode(){
 	if (document.getElementById('captcha_img').src.indexOf("api/user/check_code") > 0){
 		document.getElementById('captcha_img').src = document.getElementById('captcha_img').src + "?";

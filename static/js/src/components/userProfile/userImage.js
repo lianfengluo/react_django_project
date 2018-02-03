@@ -5,24 +5,24 @@ import ErrorItem from '../errorItem';
 const FormItem = Form.Item;
 class UserImageForm extends React.Component {
 	constructor(props) {
-	  super(props);
-	  this.setImagePreview = this.setImagePreview.bind(this);
-	  this.upload_img_function = this.upload_img_function.bind(this);
-	  this.handleSubmit = this.handleSubmit.bind(this);
-	  this.redirect_to_login = this.redirect_to_login.bind(this);
-	  this.temp_img_src=null;
+		super(props);
+		this.setImagePreview = this.setImagePreview.bind(this);
+		this.upload_img_function = this.upload_img_function.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.redirect_to_login = this.redirect_to_login.bind(this);
+		this.temp_img_src=null;
 	}
 	handleSubmit(e){
-	e.preventDefault();
-	this.refs.font_edge_error.style.display = 'none';
-	this.refs.user_img_submit_success.style.display = 'none';
- 	let data = new FormData();
- 	if(this.refs.upload_img_input.files[0]){
- 	data.append("image", this.refs.upload_img_input.files[0]); 
-	this.props.upload_user_image(data);}
-	else{
-		this.refs.font_edge_error.style.display = 'block'
-	}
+		e.preventDefault();
+		this.refs.font_edge_error.style.display = 'none';
+		this.refs.user_img_submit_success.style.display = 'none';
+	 	let data = new FormData();
+	 	if(this.refs.upload_img_input.files[0]){
+		 	data.append("image", this.refs.upload_img_input.files[0]); 
+			this.props.upload_user_image(data);}
+		else{
+			this.refs.font_edge_error.style.display = 'block'
+		}
 	};
 	upload_img_function(){
 		var ie=navigator.appName=="Microsoft Internet Explorer" ? true : false; 
@@ -39,30 +39,30 @@ class UserImageForm extends React.Component {
 		let imgObjPreview=this.refs.user_preview;
 		if(docObj.files &&docObj.files[0])
 		{
-		//firefox setting style
-		imgObjPreview.style.display = 'block';
-		imgObjPreview.style.width = '200px';
-		imgObjPreview.style.height = '200px'; 
-		imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
-		return true;
+			//firefox setting style
+			imgObjPreview.style.display = 'block';
+			imgObjPreview.style.width = '200px';
+			imgObjPreview.style.height = '200px'; 
+			imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+			return true;
 		}
 		else
 		{
-		//IE use filter
-		docObj.select();
-		let imgSrc = document.selection.createRange().text;
-		// let localImagId = document.getElementById("my_Imag");
-		let localImagId = this.refs.my_Image_div;
-		//init size
-		localImagId.style.width = "200px";
-		localImagId.style.height = "200px";
+			//IE use filter
+			docObj.select();
+			let imgSrc = document.selection.createRange().text;
+			// let localImagId = document.getElementById("my_Imag");
+			let localImagId = this.refs.my_Image_div;
+			//init size
+			localImagId.style.width = "200px";
+			localImagId.style.height = "200px";
 		try{
-		localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
-		localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+			localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+			localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
 		}
 		catch(e)
 		{
-		return false;
+			return false;
 		}
 		imgObjPreview.style.display = 'none';
 		document.selection.empty();
@@ -113,17 +113,17 @@ class UserImageForm extends React.Component {
 					<img ref="user_preview" src=""/>
 					<div>
 					<p>Preview user image</p>
-					<label htmlFor="image" style={{color:'red'}}>The size of image must less than 120kb.</label><br/>
-					<label htmlFor="image" style={{color:'red'}}>must be bmp,gif,jpeg or png.</label>
+						<label htmlFor="image" style={{color:'red'}}>The size of image must less than 120kb.</label><br/>
+						<label htmlFor="image" style={{color:'red'}}>must be bmp,gif,jpeg or png.</label>
 					</div>
 
 					<div className='user_upload_img_button' >
 					<Button onClick={this.upload_img_function}>
 						<Icon type="upload" />
 						 Upload your image
-			    		</Button>
-				         <div>
-			    		<input id='upload_img_input' type="file" style={{display:'none'}} name="image" ref='upload_img_input' onChange={this.setImagePreview}/>
+			    	</Button>
+				        <div>
+			    			<input id='upload_img_input' type="file" style={{display:'none'}} name="image" ref='upload_img_input' onChange={this.setImagePreview}/>
 			    		</div>
 			    		
 						{/*<Button type="primary" onClick={this.upload_img_function}>
