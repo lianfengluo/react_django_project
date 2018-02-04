@@ -236,7 +236,7 @@ class RegistrationForm extends React.Component {
     )}
     else {
       this.props.initRegisterState();
-      this.props.showsignupsucceed();
+      this.props.showSignUpSucceed();
       return(<Redirect to={'/user/login/username'}/>)
     }
   }

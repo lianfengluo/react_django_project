@@ -47,7 +47,7 @@ export function logout() {
     payload: my_axios('api/user/logout','GET',{})
   }
 }
-export function showsignupsucceed() {
+export function showSignUpSucceed() {
   return {
     type: 'SHOW_SIGN_UP_SUCCEED',
     payload: null
