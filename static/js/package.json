@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server --config ./webpack.dev.js",
-    "product": "webpack --config ./webpack.dev.js -p"
+    "product": "NODE_ENV=production webpack --config ./webpack.dev.js -p"
   },
   "keywords": [],
   "author": "",

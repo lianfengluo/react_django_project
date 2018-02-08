@@ -3,10 +3,10 @@ import axios from 'axios';
 function get_csrf_cookie()
 {
     var allcookies = document.cookie;
-    var cookie_pos = allcookies.indexOf('csrftoken');   //索引的长度
+    var cookie_pos = allcookies.indexOf('csrftoken');   //the length of index
   
-    // 如果找到了索引，就代表cookie存在，
-    // 反之，就说明不存在。
+    // if we can find the index, it means the "csrftoken" cookie exists
+    // otherwise it's not exists.
     if (cookie_pos != -1)
     {
         // 把cookie_pos放在值的开始，只要给值加1即可。

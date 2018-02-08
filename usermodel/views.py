@@ -49,17 +49,16 @@ def test(request):
     #     return Response({'csrftoken':request.COOKIES.get('csrftoken','')})
 
 class UserImageUpload(APIView):
+    '''
+       user upload image api
+    '''
     permission_classes = (IsAuthenticated,)
-	# '''
-	# user upload image api
-	# '''
     def post(self,request,format = None):
         image_form = UserImageForm(request.POST,request.FILES)
         if image_form.is_valid():
             img_done = fixed_size(image_form.cleaned_data['image'])
-            img_name =  str(image_form.cleaned_data['image'].name).split(".")[0]
+            img_name, extension =  str(image_form.cleaned_data['image'].name).split(".")
             img_name_done = make_random(img_name)
-            extension =  image_form.cleaned_data['image'].name.split(".")[1]
             if extension.lower() == 'jpg':
                 extension = 'jpeg'
             if extension.lower() != 'jpeg' and extension.lower() != 'bmp'\
@@ -73,7 +72,6 @@ class UserImageUpload(APIView):
             if update_user is None:
                 return Response({'error':'error'},status = status.HTTP_400_BAD_REQUEST)
             else:
-                # return Response({'img':'/media/UserImages/'+update_user.image.name})
                 cache.delete(str(request.user.pk)+'userinfo')
                 return Response({'new_img':update_user.image.url})
         else:

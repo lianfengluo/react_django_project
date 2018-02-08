@@ -31,7 +31,7 @@ class EditEmailForm extends React.Component {
 		if (!err) {
 			this.props.form.setFieldsValue({'check_code':''})
 		    this.props.sendmailcode(values);
-		    this.ChangeCode();
+		    this.GetCaptcha();
 		    this.setState({visible: false});
 		}
 		})
@@ -49,19 +49,19 @@ class EditEmailForm extends React.Component {
 	redirect_to_login(){
 		this.props.history.push('/user/login/username');
 	}
-	ChangeCode(){
-	if (document.getElementById('captcha_img').src.indexOf("api/user/check_code") > 0){
-		document.getElementById('captcha_img').src = document.getElementById('captcha_img').src + "?";
-	}
-	};
+	// ChangeCode(){
+	// if (document.getElementById('captcha_img').src.indexOf("api/user/check_code") > 0){
+	// 	document.getElementById('captcha_img').src = document.getElementById('captcha_img').src + "?";
+	// }
+	// };
 	GetCaptcha(){
-	if (document.getElementById('captcha_img').src.indexOf("api/user/check_code") > 0){
-	      document.getElementById('captcha_img').src = document.getElementById('captcha_img').src + "?";
-	}else{
-		document.getElementById('captcha_img').src = '/api/user/check_code';
-		document.getElementById('captcha_img').alt = "CheckCode"
-		document.getElementById('captcha_img').style.display = 'block';
-	}
+		if (this.refs.captcha_img.src.indexOf("api/user/check_code") > 0){
+		      this.refs.captcha_img.src = this.refs.captcha_img.src + "?";
+		}else{
+			this.refs.captcha_img.src = '/api/user/check_code';
+		this.refs.captcha_img.alt = "CheckCode"
+			this.refs.captcha_img.style.display = 'block';
+		}
 	};
 	componentWillReceiveProps(nextprops){
 		if(nextprops.userinfo.permission == 'Authentication credentials were not provided.'){
@@ -156,13 +156,13 @@ class EditEmailForm extends React.Component {
 			                <Input autoComplete='off' size="large" prefix={<Icon type="check-circle" />} placeholder="Captcha" />
 			              )}
 			            </Col>
-			            <Col span={12} onClick={this.GetCaptcha}>
+			            <Col span={12} onClick={() => this.GetCaptcha()}>
 			              <Button size="large">Get captcha</Button>
 			            </Col>
 			          </Row>
 			        </FormItem>
 	          <img style={{display:'none'}}  src="" id='captcha_img'
-	          		onClick={this.ChangeCode} style={{borderRadius:"3px",cursor:'pointer',marginBottom:'5px'}}/>
+	          		onClick={() => this.GetCaptcha()} style={{borderRadius:"3px",cursor:'pointer',marginBottom:'5px'}}/>
 		        </Modal>
 		      </div>
 			<FormItem>

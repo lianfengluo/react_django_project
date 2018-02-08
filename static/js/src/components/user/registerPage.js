@@ -14,7 +14,8 @@ class RegistrationForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        this.ChangeCode();
+        // this.ChangeCode();
+        this.GetCaptcha();
         this.props.form.setFieldsValue({'check_code':''})
         // values = Object.assign({}, values, {csrfmiddlewaretoken:document.getElementsByName('csrfmiddlewaretoken')[0].value})
         this.props.register(values);
@@ -41,18 +42,18 @@ class RegistrationForm extends React.Component {
     callback();
   };
 
-  ChangeCode(){
-    if (document.getElementById('captcha_img').src.indexOf("api/user/check_code") > 0){
-  	document.getElementById('captcha_img').src = document.getElementById('captcha_img').src + "?";
-    }
-  };
+  // ChangeCode(){
+  //   if (document.getElementById('captcha_img').src.indexOf("api/user/check_code") > 0){
+  // 	document.getElementById('captcha_img').src = document.getElementById('captcha_img').src + "?";
+  //   }
+  // };
   GetCaptcha(){
-    if (document.getElementById('captcha_img').src.indexOf("api/user/check_code") > 0){
-          document.getElementById('captcha_img').src = document.getElementById('captcha_img').src + "?";
+    if (this.refs.captcha_img.src.indexOf("api/user/check_code") > 0){
+          this.refs.captcha_img.src = this.refs.captcha_img.src + "?";
     }else{
-  	document.getElementById('captcha_img').src = '/api/user/check_code';
-    document.getElementById('captcha_img').alt = "CheckCode"
-  	document.getElementById('captcha_img').style.display = 'block';
+  	this.refs.captcha_img.src = '/api/user/check_code';
+    this.refs.captcha_img.alt = "CheckCode"
+  	this.refs.captcha_img.style.display = 'block';
     }
   };
   render() {
@@ -201,13 +202,13 @@ class RegistrationForm extends React.Component {
                 <Input size="large" prefix={<Icon type="check-circle" />} placeholder="Captcha" />
               )}
             </Col>
-            <Col span={12} onClick={this.GetCaptcha}>
+            <Col span={12} onClick={() => this.GetCaptcha()}>
               <Button size="large">Get captcha</Button>
             </Col>
           </Row>
         </FormItem>
-          <img style={{display:'none'}}  src="" id='captcha_img'
-          		onClick={this.ChangeCode} style={{borderRadius:"3px",cursor:'pointer',marginBottom:'5px'}}/>
+          <img style={{display:'none'}}  src="" ref='captcha_img'
+          		onClick={() => this.GetCaptcha()} style={{borderRadius:"3px",cursor:'pointer',marginBottom:'5px'}}/>
         {/*<FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
           {getFieldDecorator('agreement', {
             valuePropName: 'checked',

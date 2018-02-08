@@ -93,7 +93,7 @@ var config = {
     // ]
 };
 if (process.env.NODE_ENV === 'production') {
-    config.devtool = "#nosources-source-map",
+    config.devtool = null,
     config.plugins.push(
         new webpack.DefinePlugin({
             "process.env": {
@@ -109,7 +109,7 @@ if (process.env.NODE_ENV === 'production') {
     )
 
 } else {
-    devtool:'#cheap-eval-source-map',
+    devtool:'#inline-sourcemap',
     // devtool:'#eval-source-map',
     config.devServer = {
         // contentBase: './devoutput',
