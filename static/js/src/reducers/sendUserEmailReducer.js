@@ -17,11 +17,7 @@ function sendEmailReducer(state = initalState, action) {
       return { ...state, loading: false,send_email_succeed,errors: []};
     case 'SEND_MAIL_CODE_REJECTED':
       if(action.payload.response.data.errors){
-        for(let key in action.payload.response.data.errors){
-          action.payload.response.data.errors[key].map((val)=>{
-            errors.push(val)
-          })
-        }
+        Object.values(action.payload.response.data.errors).map(val => errors.push(val))
       }
       return { ...state, loading: false, error: `${action.payload.message}`, errors  };
     case 'INIT_SEND_MAIL_STATE':

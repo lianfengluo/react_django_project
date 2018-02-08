@@ -15,11 +15,7 @@ function userImageReducer(state = initalState, action) {
 	  return { ...state, loading: false, new_img };
 	case 'UPLOAD_USER_IMAGE_REJECTED':
       if(action.payload.response.data.errors){
-        for(let key in action.payload.response.data.errors){
-          action.payload.response.data.errors[key].map((val)=>{
-            errors.push(val)
-          })
-        }
+        Object.values(action.payload.response.data.errors).map(val => errors.push(val))
       }
 	  return { ...state, loading: false, error: `${action.payload.message}`, errors};
 	// case 'CHANGE_REGISTER_STATE':

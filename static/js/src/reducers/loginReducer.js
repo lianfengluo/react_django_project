@@ -17,6 +17,7 @@ function loginReducer(state = initalState, action) {
   switch (action.type) {
     // case 'SIGN_UP_SUCCESS':
     //   return { ...state, sign_up_success:true }
+    // login by username
     case 'USER_LOGIN_BY_USERNAME_PENDING':
       return { ...state, loading: true,sign_up_info:'',errors: [] };
     case 'USER_LOGIN_BY_USERNAME_FULFILLED':
@@ -24,27 +25,22 @@ function loginReducer(state = initalState, action) {
       return { ...state, loading: false, login_success };
     case 'USER_LOGIN_BY_USERNAME_REJECTED':
       if(action.payload.response.data.errors){
-        for(let key in action.payload.response.data.errors){
-          action.payload.response.data.errors[key].map((val)=>{
-            errors.push(val)
-          })
-        }
+        Object.values(action.payload.response.data.errors).map(val => errors.push(val))
       }
-      return { ...state, loading: false, error: `${action.payload.message}`,errors };
+      return { ...state, loading: false, error: action.payload.message,errors };
+    // log by email
     case 'USER_LOGIN_BY_EMAIL_PENDING':
       return { ...state, loading: true,sign_up_info:'',errors: [] };
     case 'USER_LOGIN_BY_EMAIL_FULFILLED':
       login_success = action.payload.data.login_success;
       return { ...state, loading: false, login_success };
-    case 'USER_LOGIN_BY_EMAIL_REJECTED':
+    case 'USER_LOGIN_BY_EMAIL_REJECTED'
       if(action.payload.response.data.errors){
-        for(let key in action.payload.response.data.errors){
-          action.payload.response.data.errors[key].map((val)=>{
-            errors.push(val)
-          })
-        }
+        Object.values(action.payload.response.data.errors).map(val => errors.push(val))
       }
-      return { ...state, loading: false, error: `${action.payload.message}`,errors };
+      return { ...state, loading: false, error: action.payload.message,errors };
+
+    //log by phone
     case 'USER_LOGIN_BY_PHONE_PENDING':
       return { ...state, loading: true,sign_up_info:'',errors: [] };
     case 'USER_LOGIN_BY_PHONE_FULFILLED':
@@ -52,13 +48,9 @@ function loginReducer(state = initalState, action) {
       return { ...state, loading: false, login_success };
     case 'USER_LOGIN_BY_PHONE_REJECTED':
       if(action.payload.response.data.errors){
-        for(let key in action.payload.response.data.errors){
-          action.payload.response.data.errors[key].map((val)=>{
-            errors.push(val)
-          })
-        }
+        Object.values(action.payload.response.data.errors).map(val => errors.push(val))
       }
-      return { ...state, loading: false, error: `${action.payload.message}`,errors };
+      return { ...state, loading: false, error: action.payload.message,errors };
     // case 'CHANGE_LOGIN_STATE':
     //   return { ...state, login_success:`${action.payload}`,sign_up_info: 'sign up succeed' };
     case 'SHOW_SIGN_UP_SUCCEED':

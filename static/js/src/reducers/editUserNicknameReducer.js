@@ -15,11 +15,7 @@ function editNicknameReducer(state = initalState, action) {
       return { ...state, loading: false, change_nickname_succeed,send_email_succeed: undefined };
     case 'EDIT_USER_NICKNAME_REJECTED':
       if(action.payload.response.data.errors){
-        for(let key in action.payload.response.data.errors){
-          action.payload.response.data.errors[key].map((val)=>{
-            errors.push(val)
-          })
-        }
+        Object.values(action.payload.response.data.errors).map(val => errors.push(val))
       }
       return { ...state, loading: false, error: `${action.payload.message}`,errors };
     case 'INIT_EDIT_USER_EMAIL_STATE':

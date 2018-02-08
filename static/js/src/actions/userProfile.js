@@ -3,7 +3,7 @@ import my_axios from './myaxios.js';
 export function upload_user_image(data) {
 	return{
 		type:'UPLOAD_USER_IMAGE',
-		payload: my_axios('api/user/userimageupload','POST',data,(data)=>{return data})
+		payload: my_axios('api/user/userimageupload','POST',data,(data) => data)
 	}
 }
 export function initUserImageState(data) {
