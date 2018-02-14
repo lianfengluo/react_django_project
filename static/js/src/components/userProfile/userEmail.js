@@ -11,9 +11,9 @@ class EditEmailForm extends React.Component {
 	  super(props);
 	  this.state = {visible:false};
 	  this.temp_bind_signal = null;
-	  this.redirect_to_login = this.redirect_to_login.bind(this);
+	  this.redirect_to_login = this.redirect_to_login.bind(this);()=>
 	}
-	showModal = () => {
+	showModal(){
     this.setState({
       visible: true,
     });
@@ -119,7 +119,7 @@ class EditEmailForm extends React.Component {
 			              )}
 			            </Col>
 			            <Col span={12}>
-			              <Button onClick={this.showModal}>send mail</Button>
+			              <Button onClick={()=>this.showModal()}>send mail</Button>
 			            </Col>
 			      </Row>
 			      <label style={{color:'red'}} htmlFor="email_verification_code">The code only validated in 300s</label>

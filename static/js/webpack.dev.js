@@ -11,7 +11,8 @@ var config = {
     },
     // path.resolve(projectRootPath, 'src/app.js'),
     output: {
-        path: path.resolve(path.resolve(__dirname, '.')),
+        // __dirname is current working directory
+        path: path.resolve(__dirname, '.'),
         // publicPath: "/assets/",
         filename: 'bundle.js',
     },
