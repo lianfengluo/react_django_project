@@ -7,7 +7,6 @@ var config = {
         index: [
             './src/index.js', // Your appʼs entry point
         ],
-        vendor: ['react']
     },
     // path.resolve(projectRootPath, 'src/app.js'),
     output: {
@@ -48,19 +47,10 @@ var config = {
     
 
     plugins: [
-    	new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'}),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
             }
-        }),
-        new CompressionPlugin({
-            asset: "[path].gz[query]",
-            algorithm: "gzip",
-            // test: /\.js$|\.html$/,
-            // threshold: 10240,
-            threshold: 540,
-            minRatio: 0.8
         }),
     ]
 
@@ -95,7 +85,10 @@ var config = {
 };
 if (process.env.NODE_ENV === 'production') {
     config.devtool = false,
+    config.entry['vendor'] = ['react'],
     config.plugins.push(
+    	new webpack.optimize.CommonsChunkPlugin({name: 'vendor', 
+		filename: 'vendor.bundle.js'}),
         new webpack.DefinePlugin({
             "process.env": {
                 NODE_ENV: JSON.stringify("production")
@@ -106,7 +99,15 @@ if (process.env.NODE_ENV === 'production') {
                 warnings: false,
                 screw_ie8: true
             },
-        })
+        }),
+        new CompressionPlugin({
+            asset: "[path].gz[query]",
+            algorithm: "gzip",
+            // test: /\.js$|\.html$/,
+            // threshold: 10240,
+            threshold: 540,
+            minRatio: 0.8
+        }),
     )
 
 } else {
