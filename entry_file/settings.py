@@ -143,14 +143,4 @@ MEDIA_DIRS = (
 #         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
 #     ]
 # }
-# CACHE_BACKEND = 'redis_cache.cache://127.0.0.1:6379'
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django_redis.cache.RedisCache',
-#         'LOCATION': 'redis://richardredis.aol35p.ng.0001.use2.cache.amazonaws.com:6379',
-#         # 'KEY_PREFIX' : "redis://",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         },
-#     },
-# }
+
