@@ -5,7 +5,7 @@ use react redux django _restfulapi
 linux
 `backend:`
 python3
-django
+django<br>
 `fontend:`
 react
 redux
