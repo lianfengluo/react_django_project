@@ -97,10 +97,10 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'richard_mysql1',
-        'USER': 'richard',
-        'PASSWORD': 'lianfeng123',
-        'HOST': 'richard-mysql-instance1.cnpbvgzssbdd.us-east-2.rds.amazonaws.com',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '3306',
     }
 }
