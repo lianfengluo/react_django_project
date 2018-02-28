@@ -4,6 +4,6 @@
 *.egg
 *.egg-info
 *.gz
-bundke.js
+bundle.js
 vendor.bundle.js
 node_modules
