@@ -1,7 +1,7 @@
 # react_django_project
 use react redux django _restfulapi
 
-##env
+### env
 linux
 `backend:`
 python3
@@ -17,7 +17,7 @@ install the requirement packages
 cd react_django_project
 pip3 install -r requirements.txt
 ```
-##fontend
+### fontend
 install the requirement modules
 ```
 cd static/js
