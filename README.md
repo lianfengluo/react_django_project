@@ -2,7 +2,7 @@
 use react redux django _restfulapi
 
 ### env
-linux
+`os:`linux<br>
 `backend:`
 python3
 django<br>
