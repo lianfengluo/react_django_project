@@ -11,8 +11,8 @@ init_chars = ''.join((_letter_cases, _upper_cases, _numbers))
 
 
 def send_mail_server(send_to):
-	_user = "1014646056@qq.com"
-	_pwd  = "lvboncpdeawvbajc"
+	_user = ""		#your email server username
+	_pwd  = ""		#your email server password
 	_to   = send_to
 
 	length = 6

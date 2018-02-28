@@ -97,10 +97,10 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'richard_mysql1',
-        'USER': 'richard',
-        'PASSWORD': 'lianfeng123',
-        'HOST': 'richard-mysql-instance1.cnpbvgzssbdd.us-east-2.rds.amazonaws.com',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '3306',
     }
 }
@@ -143,14 +143,4 @@ MEDIA_DIRS = (
 #         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
 #     ]
 # }
-# CACHE_BACKEND = 'redis_cache.cache://127.0.0.1:6379'
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django_redis.cache.RedisCache',
-#         'LOCATION': 'redis://richardredis.aol35p.ng.0001.use2.cache.amazonaws.com:6379',
-#         # 'KEY_PREFIX' : "redis://",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         },
-#     },
-# }
+
