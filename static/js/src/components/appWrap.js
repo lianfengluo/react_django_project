@@ -10,7 +10,8 @@ const App = (props) => (
       {/*<h1>This is our app component</h1>*/}
       {props.children}
     </div>
-      <div className='footer'><Icon type="copyright" />Power By luolianfeng&nbsp;&nbsp;&nbsp;<Icon type="mail" />E-mail:1014646056@qq.com</div>
+      <div className='footer'>
+<Icon type="copyright" />Power By Richard Luo&nbsp;&nbsp;&nbsp;<Icon type="mail" />E-mail:lianfengluo28@gmail.com</div>
   </div>
 )
 
