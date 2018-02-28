@@ -23,8 +23,9 @@ def CreatePPCaptcha(size=(180, 50),
   BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
   size = (180, 40)
   fonts = [BASE_DIR + r'/systemfonts/ALGER.TTF', BASE_DIR + r'/systemfonts/AGENCYR.TTF', BASE_DIR + r'/systemfonts/ANTQUABI.TTF', BASE_DIR + r'/systemfonts/ANTQUAI.TTF', BASE_DIR + r'/systemfonts/ARIALBD.TTF', BASE_DIR + r'/systemfonts/ARIALNB.TTF', BASE_DIR + r'/systemfonts/ARIALNI.TTF', BASE_DIR + r'/systemfonts/ARIBLK.TTF', BASE_DIR + r'/systemfonts/ARLRDBD.TTF', BASE_DIR + r'/systemfonts/BAUHS93.TTF',
-         BASE_DIR + r'/systemfonts/BELL.TTF', BASE_DIR + r'/systemfonts/BELLI.TTF', BASE_DIR + r'/systemfonts/BERNHC.TTF',
-           BASE_DIR + r'/systemfonts/BKANT.TTF', BASE_DIR + r'/systemfonts/BOD_CR.TTF', BASE_DIR + r'/systemfonts/BRADHITC.TTF', BASE_DIR + r'/systemfonts/BROADW.TTF', BASE_DIR + r'/systemfonts/BRUSHSCI.TTF', BASE_DIR + r'/systemfonts/CASTELAR.TTF', BASE_DIR + r'/systemfonts/CHILLER.TTF', BASE_DIR + r'/systemfonts/COLONNA.TTF', BASE_DIR + r'/systemfonts/COPRGTL.TTF']
+        # BASE_DIR + r'/systemfonts/BELL.TTF', BASE_DIR + r'/systemfonts/BELLI.TTF', BASE_DIR + r'/systemfonts/BERNHC.TTF',
+         #  BASE_DIR + r'/systemfonts/BKANT.TTF', BASE_DIR + r'/systemfonts/BOD_CR.TTF', BASE_DIR + r'/systemfonts/BRADHITC.TTF', BASE_DIR + r'/systemfonts/BROADW.TTF', BASE_DIR + r'/systemfonts/BRUSHSCI.TTF', BASE_DIR + r'/systemfonts/CASTELAR.TTF', BASE_DIR + r'/systemfonts/CHILLER.TTF', BASE_DIR + r'/systemfonts/COLONNA.TTF', BASE_DIR + r'/systemfonts/COPRGTL.TTF'
+	]
   font_type = random.choice(fonts)
 
   # bg_color=(random.randint(157,255), random.randint(157,255), random.randint(157,255))
