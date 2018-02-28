@@ -23,3 +23,6 @@ install the requirement modules
 cd static/js
 npm install --save
 ```
+### config
+go the usermodel directory and open file mail_server.py change the mail server username and password<br>
+go the entry_file directory and open the settings.py change the database username password and hostname
