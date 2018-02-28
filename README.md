@@ -6,7 +6,7 @@ use react redux django _restfulapi
 `backend:`
 python3
 django<br>
-`fontend:`
+`frontend:`
 react
 redux
 webpack
@@ -17,7 +17,7 @@ install the requirement packages
 cd react_django_project
 pip3 install -r requirements.txt
 ```
-### fontend
+### frontend
 install the requirement modules
 ```
 cd static/js
