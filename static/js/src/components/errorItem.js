@@ -3,11 +3,11 @@ const MyText = (props) =>{
 	return <span>{props.Text}<br/></span>
 }
 const ErrorItem = (props) => {
-	let strings = props.error.split("\n");
+	let strings = props.error.toString().split("\n");
 	return(
 	<span>
-		<p style={{color:'red'}} key={props.key}>
-		{strings.map((info)=>{return (<MyText Text={info}/>)})}
+		<p style={{color:'red'}}>
+		{strings.map((info)=>(<MyText key={info.toString()} Text={info}/>))}
 		</p>
 	</span>
 	)
@@ -18,7 +18,7 @@ const ErrorItem = (props) => {
 // 	<span dangerouslySetInnerHTML={{__html: 
 // 	"<p style='color:red' key="+props.key+">"+props.error+"</p><br/>"}} />
 // )
-ErrorItem.propTypes = {
-  error: React.PropTypes.string.isRequired,
-}
+// ErrorItem.propTypes = {
+//   error: React.PropTypes.array.isRequired,
+// }
 export default ErrorItem;

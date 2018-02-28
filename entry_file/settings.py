@@ -50,7 +50,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'usermodel.hashers.MyHasher',
+    # 'usermodel.hashers.MyHasher',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -71,7 +71,7 @@ ROOT_URLCONF = 'entry_file.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR + r'\templates'],
+        'DIRS': [BASE_DIR + r'/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,10 +97,10 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database name',
-        'USER': 'username',
-        'PASSWORD': 'password',
-        'HOST': '',
+        'NAME': 'richard_mysql1',
+        'USER': 'richard',
+        'PASSWORD': 'lianfeng123',
+        'HOST': 'richard-mysql-instance1.cnpbvgzssbdd.us-east-2.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
@@ -123,25 +123,18 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR + r'\static'
+STATIC_ROOT = BASE_DIR + r'/static'
 STATICFILES_DIRS = (
-    ('css', STATIC_ROOT + r'\css'),
-    ('js', STATIC_ROOT + r'\js'),
-    # ('asset', STATIC_ROOT + r'\asset'),
-    ('fonts', STATIC_ROOT + r'\fonts'),
-    # ('maps', STATIC_ROOT + r'\maps'),
-    # ('scripts', STATIC_ROOT + r'\scripts'),
-    # ('styles', STATIC_ROOT + r'\styles'),
-    # ('images', STATIC_ROOT + r'\images'),
-    #     ('images',os.path.join(STATIC_ROOT,'images').replace('\\','/') ),
-    #     ('upload',os.path.join(STATIC_ROOT,'upload').replace('\\','/') ),
+    ('css', STATIC_ROOT + r'/css'),
+    ('js', STATIC_ROOT + r'/js'),
+    ('fonts', STATIC_ROOT + r'/fonts'),
+    #     ('images',os.path.join(STATIC_ROOT,'images').replace('//','/') ),
+    #     ('upload',os.path.join(STATIC_ROOT,'upload').replace('//','/') ),
 )
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR + r'\media'
+MEDIA_ROOT = BASE_DIR + r'/media'
 MEDIA_DIRS = (
-    ('Images', MEDIA_ROOT + r'\Images'),
-    #     ('images',os.path.join(STATIC_ROOT,'images').replace('\\','/') ),
-    #     ('upload',os.path.join(STATIC_ROOT,'upload').replace('\\','/') ),
+    ('Images', MEDIA_ROOT + r'/Images'),
 )
 # REST_FRAMEWORK = {
 #     # Use Django's standard `django.contrib.auth` permissions,
@@ -151,12 +144,13 @@ MEDIA_DIRS = (
 #     ]
 # }
 # CACHE_BACKEND = 'redis_cache.cache://127.0.0.1:6379'
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://luolianfeng@127.0.0.1:6379/1',
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        },
-    },
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django_redis.cache.RedisCache',
+#         'LOCATION': 'redis://richardredis.aol35p.ng.0001.use2.cache.amazonaws.com:6379',
+#         # 'KEY_PREFIX' : "redis://",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#         },
+#     },
+# }

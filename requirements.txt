@@ -1,0 +1,7 @@
+django==1.11
+djangorestframework
+pytz
+pillow
+django_redis
+django-cors-headers
+pymysql

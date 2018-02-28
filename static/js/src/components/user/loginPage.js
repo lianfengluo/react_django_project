@@ -73,9 +73,9 @@ class LoginForm extends React.Component {
               </FormItem>
       		    {info.errors?(
                <div id={'errors'}>
-                {info.errors.map((error, i) => {
+                {info.errors.map((error) => {
                   return <ErrorItem
-                    key={i}
+                    key={error.toString()}
                     error={error}
                   />
                 })}

@@ -4,8 +4,7 @@ import random
 import string
 import hashlib
 import sys
-reload(sys)  
-sys.setdefaultencoding('utf8')   
+
 
 def make_random(img_name):
 	salt = str(img_name)

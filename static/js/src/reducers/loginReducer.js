@@ -34,7 +34,7 @@ function loginReducer(state = initalState, action) {
     case 'USER_LOGIN_BY_EMAIL_FULFILLED':
       login_success = action.payload.data.login_success;
       return { ...state, loading: false, login_success };
-    case 'USER_LOGIN_BY_EMAIL_REJECTED'
+    case 'USER_LOGIN_BY_EMAIL_REJECTED':
       if(action.payload.response.data.errors){
         Object.values(action.payload.response.data.errors).map(val => errors.push(val))
       }

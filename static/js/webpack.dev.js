@@ -94,7 +94,7 @@ var config = {
     // ]
 };
 if (process.env.NODE_ENV === 'production') {
-    config.devtool = null,
+    config.devtool = false,
     config.plugins.push(
         new webpack.DefinePlugin({
             "process.env": {

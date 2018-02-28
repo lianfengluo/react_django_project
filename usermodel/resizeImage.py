@@ -10,5 +10,3 @@ if __name__ == '__main__':
 	# print f.width,f.height
 	new_img = fixed_size('./test.png')
 	new_img.save('./test2.png')
-	print new_img
-	print 'done'

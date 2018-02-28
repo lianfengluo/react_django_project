@@ -66,7 +66,7 @@ class UserImageUpload(APIView):
                 return Response({'errors':{'info':['Invalid upload extension']}},\
                             status = status.HTTP_400_BAD_REQUEST)
             filename = "/UserImages/%s.%s"%(img_name_done,extension)
-            path = settings.MEDIA_ROOT+'\\UserImages\\'+img_name_done+'.'+str(extension)
+            path = settings.MEDIA_ROOT+'/UserImages/'+img_name_done+'.'+str(extension)
             img_done.save(path,str(extension))
             update_user = image_form.update_img(request.user.pk,img_done,filename)
             if update_user is None:

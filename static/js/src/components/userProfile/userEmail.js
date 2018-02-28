@@ -11,7 +11,7 @@ class EditEmailForm extends React.Component {
 	  super(props);
 	  this.state = {visible:false};
 	  this.temp_bind_signal = null;
-	  this.redirect_to_login = this.redirect_to_login.bind(this);()=>
+	  this.redirect_to_login = this.redirect_to_login.bind(this);
 	}
 	showModal(){
     this.setState({
@@ -141,7 +141,7 @@ class EditEmailForm extends React.Component {
 		              required: true, message: 'Please input your E-mail!',
 		            }],
 		          })(
-		            <Input style={{width:'50%'}} disabled="disabled" prefix={<Icon type="mail" style={{ fontSize: 13 }} />} placeholder="E-mail" />
+		            <Input style={{width:'50%'}} disabled={true} prefix={<Icon type="mail" style={{ fontSize: 13 }} />} placeholder="E-mail" />
 		          )}
 		        </FormItem>
 				     <FormItem extra="We must make sure that your are a human(not case sensitive).">
@@ -161,7 +161,7 @@ class EditEmailForm extends React.Component {
 			            </Col>
 			          </Row>
 			        </FormItem>
-	          <img style={{display:'none'}}  src="" id='captcha_img'
+	          <img style={{display:'none'}}  src="" ref='captcha_img'
 	          		onClick={() => this.GetCaptcha()} style={{borderRadius:"3px",cursor:'pointer',marginBottom:'5px'}}/>
 		        </Modal>
 		      </div>

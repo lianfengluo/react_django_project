@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { createLogger } from 'redux-logger';
+// import { createLogger } from 'redux-logger';
 import promise from 'redux-promise-middleware';
 import postReducer from './reducers/postReducer';
 import fetchUserInfoReducer from './reducers/fetchUserInfoReducer';
@@ -25,7 +25,7 @@ export default createStore(
         editUserNicknameReducer,
     }),
     applyMiddleware(
-        createLogger(),
+        // createLogger(),
         promise()
     )
 );

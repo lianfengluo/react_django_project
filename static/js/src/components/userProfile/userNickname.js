@@ -101,7 +101,7 @@ class EditNicknameForm extends React.Component {
 	            </Col>
 	          </Row>
 			</FormItem>
-			<img style={{display:'none'}}  src="" id='captcha_img'
+			<img style={{display:'none'}}  src="" ref='captcha_img'
           		onClick={this.ChangeCode} style={{borderRadius:"3px",cursor:'pointer',marginBottom:'5px'}}/>
 			<FormItem>
 	          <Button type="primary" htmlType="submit" className="login-form-button">

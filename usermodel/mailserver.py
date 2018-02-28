@@ -11,9 +11,8 @@ init_chars = ''.join((_letter_cases, _upper_cases, _numbers))
 
 
 def send_mail_server(send_to):
-	# 第三方 SMTP 服务
 	_user = "1014646056@qq.com"
-	_pwd  = "exmqzsgegrqmbbfh"
+	_pwd  = "lvboncpdeawvbajc"
 	_to   = send_to
 
 	length = 6
@@ -34,11 +33,9 @@ def send_mail_server(send_to):
 	    s.login(_user, _pwd)
 	    s.sendmail(_user, _to, msg.as_string())
 	    s.quit()
-	    # print "Success!"
 	    return verify_code
-	except smtplib.SMTPException,e:
-		print "Falied,%s"%e 
-		return None
+	except smtplib.SMTPException:
+		raise("send mail failed")
 
 # if __name__ == '__main__':
 # 	send_mail_server("1014646056@qq.com")
